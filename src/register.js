@@ -12,7 +12,7 @@ function importFiles(dirPath) {
   files.forEach((file) => {
     const filePath = Path.join(dirPath, file);
     const stat = FileSystem.statSync(filePath);
-
+    if (file.startsWith("_")) return;
     if (stat.isFile() && file.endsWith(".js")) {
       require(filePath);
     } else if (stat.isDirectory()) {
