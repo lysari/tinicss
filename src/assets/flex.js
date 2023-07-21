@@ -1,4 +1,4 @@
-const DISPLAY = {
+const FLEX = {
   flex: {
     _default: "display:flex",
     row: "flex-direction:row",
@@ -9,5 +9,5 @@ const DISPLAY = {
 };
 
 module.exports = {
-  ...DISPLAY,
+  ...FLEX,
 };
