@@ -1,3 +1,5 @@
+const { colors } = require("./custom");
+
 const palette = {
   white: "#ffffff",
   black: "#000000",
@@ -111,6 +113,6 @@ const palette = {
     800: "#9c4221",
     900: "#7b341e",
   },
+  ...colors,
 };
-
 module.exports = { palette };

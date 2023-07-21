@@ -1,5 +1,6 @@
-const { getColor } = require("../libs/tools");
+const { getColor, getModel } = require("../libs/tools");
 const { palette } = require("../themes/color");
+const { fonts } = require("../themes/custom");
 
 const TEXT = {
   text: {
@@ -8,6 +9,7 @@ const TEXT = {
     right: "text-align:right",
     ...getColor(palette, ""),
     _custom: "font-size:",
+    ...getModel("font-size:", fonts.size),
   },
 };
 module.exports = {
