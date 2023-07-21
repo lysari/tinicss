@@ -3,7 +3,7 @@ const fs = require("fs");
 const { getUtility } = require("./utils");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-const CONFIG = require(process.cwd() + "/tini.config.js");
+const CONFIG = require(process.cwd() + "/tinicss.config.js");
 const PATH = {
   CONTENT: CONFIG.content,
   BUILD: CONFIG.output || "./build",

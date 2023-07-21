@@ -1,4 +1,4 @@
-const CONFIG = require(process.cwd() + "/tini.config.js");
+const CONFIG = require(process.cwd() + "/tinicss.config.js");
 const CUSTOM = {
   colors: CONFIG?.custom?.colors || {},
   fonts: {

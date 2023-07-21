@@ -24,4 +24,4 @@
 .shadow-xl { box-shadow:0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
 .text-sm { font-size:0.875rem; }
 .font-roboto { font-family:'Roboto', sans-serif; }
-.font-light { font-weight:300; }
+.font-normal { font-weight:400; }

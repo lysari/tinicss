@@ -1,6 +1,6 @@
 const gulp = require("gulp");
 const { start } = require("./src/index");
-const CONFIG = require(process.cwd() + "/tini.config.js");
+const CONFIG = require(process.cwd() + "/tinicss.config.js");
 const PATH = {
   CONTENT: CONFIG.content,
   BUILD: CONFIG.output || "./build",
