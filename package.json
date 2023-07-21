@@ -1,0 +1,38 @@
+{
+  "name": "tinicss",
+  "version": "0.0.1",
+  "description": "CSS framework",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "gulp watch",
+    "build": "gulp"
+  },
+  "keywords": [
+    "css",
+    "framework"
+  ],
+  "author": "LY SARI",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.21.8",
+    "cssnano": "^6.0.1",
+    "fs": "^0.0.1-security",
+    "glob": "^10.2.3",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify": "^3.0.2",
+    "jsdom": "^22.1.0",
+    "postcss": "^8.4.23",
+    "sass": "^1.62.1"
+  },
+  "devDependencies": {
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "typescript": "^5.0.4"
+  }
+}
