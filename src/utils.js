@@ -1,4 +1,4 @@
-const model = require("./presets/model");
+const model = require("./register");
 const {
   isObject,
   isUndefinedValue,

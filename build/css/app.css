@@ -1,4 +1,4 @@
-.\!max-w-\[calc\(100\%\/2\)\] { max-width:calc(100%/2) !important; }
+.min-w-\[calc\(100\%\/2\)\] { min-width:calc(100%/2); }
 .h-full { height:100%; }
 .bg-orange-700 { background-color:#c05621; }
 .absolute { position:absolute; }
@@ -15,7 +15,7 @@
 .text-white { color:#ffffff; }
 .text-\[30px\] { font-size:30px; }
 .border-sm { border-width:1px; }
-.m-\[20px\] { margin:20px; }
+.mx-\[20px\] { margin-left:20px;margin-right:20px; }
 .py-\[20px\] { padding-top:20px;padding-bottom:20px; }
 .border-\[2px\] { border-width:2px; }
 .border-dashed { border-style:dashed; }
