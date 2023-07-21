@@ -11,14 +11,13 @@ const PATH = {
 
 function start() {
   return new Promise((resolve) => {
-    const tasks = {};
+    const tasks = [];
     extractClass()
       .then((data) => {
         const classList = [...new Set(data)];
         classList.map((item) => {
-          const [name, attr, value] = item.split("-");
-          const style = getUtility(name, attr, value);
-          if (style) tasks[item] = style;
+          const style = getUtility(item);
+          if (style) tasks.push(style);
         });
       })
       .catch((err) => console.log(err))
@@ -88,8 +87,8 @@ function build(styles) {
  */
 function prepareClasses(styles) {
   let css = "";
-  Object.keys(styles).forEach(function (className) {
-    css += checkClassName(className, styles[className]);
+  styles.forEach(function (item) {
+    css += checkClassName(item);
   });
   return css;
 }
@@ -101,11 +100,10 @@ function prepareClasses(styles) {
  * @param {string} value - The value to be assigned to the formatted string
  * @return {string} The formatted CSS class selector string
  */
-function checkClassName(name, value) {
-  //add \ before any special characters only in []
-  const n = name.replace(/[!\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|\%]/g, "\\$&");
-  const s = name.match(/^!/) ? " !important" : "";
-  return `.${n} { ${value}${s}; }\n`;
+function checkClassName(item) {
+  if(!item.class?.value) return '';
+  const s = item.class?.isImportant ? " !important" : "";
+  return `.${item.key} { ${item.class?.value}${s}; }\n`;
 }
 
 module.exports = { start };

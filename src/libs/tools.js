@@ -39,8 +39,6 @@ function isObject(obj) {
 const isCustomUtility = (p) => p && p.startsWith("[") && p.endsWith("]");
 const isHasCustomUtility = (obj) => obj?._custom;
 const combineModelByKey = (...models) => {
-  // example input: [{a: 1, b: 2}, {a: 3, b: 4},...]
-  // example output: {a: "1; 3;...", b: "2; 4;..."}
   const result = {};
   models.forEach((model) => {
     Object.keys(model).forEach((key) => {
@@ -55,6 +53,8 @@ const combineModelByKey = (...models) => {
   });
   return result;
 };
+const removeImportant = (value) => value.replace(/!/g, "");
+
 module.exports = {
   getColor,
   getModel,
@@ -64,4 +64,5 @@ module.exports = {
   isCustomUtility,
   isHasCustomUtility,
   combineModelByKey,
+  removeImportant
 };
