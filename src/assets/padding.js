@@ -1,5 +1,5 @@
 const { combineModelByKey, getModel } = require("../libs/tools");
-const { SIZE, TOP, RIGHT, BOTTOM, LEFT } = require("./common");
+const { SIZE, TOP, RIGHT, BOTTOM, LEFT } = require("../presets/common");
 
 //Set the name of the utility
 const NAME = "padding";

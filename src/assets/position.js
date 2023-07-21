@@ -1,4 +1,4 @@
-const { TOP, RIGHT, BOTTOM, LEFT } = require("./common");
+const { TOP, RIGHT, BOTTOM, LEFT } = require("../presets/common");
 
 const POSITION = {
   relative: "position:relative",
