@@ -29,7 +29,9 @@ function getUtility(args) {
 }
 
 function getKey(p) {
-  return p.replace(/[!\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|\%\:\,]/g, "\\$&");
+  const keyName = p.replace(/[!\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|\%\:\,]/g, "\\$&");
+  const nameStartWithNumber = keyName.replace(/^[0-9]/g, "\\$&");
+  return nameStartWithNumber;
 }
 
 function getScreen(p) {

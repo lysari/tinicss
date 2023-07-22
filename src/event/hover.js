@@ -1,3 +1,4 @@
 module.exports = {
-  hover: {},
+  hover: ":hover",
+  focus: ":focus",
 };

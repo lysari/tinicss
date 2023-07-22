@@ -4,6 +4,9 @@ const { getUtility } = require("./utils");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const CONFIG = require(process.cwd() + "/tinicss.config.js");
+const mediaScreen = require("./media/screen");
+const Event = require("./event/hover");
+
 const PATH = {
   CONTENT: CONFIG.content,
   BUILD: CONFIG.output || "./build",
@@ -86,9 +89,35 @@ function build(styles) {
  * @return {string} CSS string with valid class definitions.
  */
 function prepareClasses(styles) {
+  return prepareScreen(styles);
+}
+
+/**
+ * Responsive.
+ *
+ * @param {Object} styles - Object with class names as keys and style definitions as values.
+ * @return {string} CSS string with valid class definitions.
+ * @private
+ * @example
+ **/
+function prepareScreen(styles) {
+  const screen = styles.reduce((r, a) => {
+    r[a.screen] = [...(r[a.screen] || []), a];
+    return r;
+  }, {});
   let css = "";
-  styles.forEach(function (item) {
-    css += checkClassName(item);
+  Object.keys(screen).forEach((key) => {
+    if (mediaScreen[key]) {
+      css += `@media (min-width: ${mediaScreen[key].min}) {\n`;
+      screen[key].forEach(function (item) {
+        css += checkClassName(item);
+      });
+      css += "}\n";
+    } else {
+      screen[key].forEach(function (item) {
+        css += checkClassName(item);
+      });
+    }
   });
   return css;
 }
@@ -101,9 +130,23 @@ function prepareClasses(styles) {
  * @return {string} The formatted CSS class selector string
  */
 function checkClassName(item) {
-  if(!item.class?.value) return '';
+  if (!item.class?.value) return "";
   const s = item.class?.isImportant ? " !important" : "";
-  return `.${item.key} { ${item.class?.value}${s}; }\n`;
+  const elEvent = prepareEvent(item);
+  console.log(elEvent);
+  if (typeof elEvent === Boolean) return "";
+  return `.${item.key + elEvent} { ${item.class?.value}${s}; }\n`;
+}
+
+function prepareEvent(item) {
+  if (item.event) {
+    if (Event[item.event]) {
+      return `${Event[item.event]}`;
+    } else {
+      return false;
+    }
+  }
+  return "";
 }
 
 module.exports = { start };
